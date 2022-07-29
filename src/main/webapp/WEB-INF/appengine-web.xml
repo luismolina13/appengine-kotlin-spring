@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<appengine-web-app xmlns="http://appengine.google.com/ns/1.0">
+    <service>demo</service>
+    <threadsafe>true</threadsafe>
+    <runtime>java11</runtime>
+    <instance-class>F4</instance-class>
+    <automatic-scaling>
+        <min-instances>5</min-instances>
+    </automatic-scaling>
+</appengine-web-app>
