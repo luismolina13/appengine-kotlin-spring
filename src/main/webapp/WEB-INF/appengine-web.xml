@@ -5,6 +5,6 @@
     <runtime>java11</runtime>
     <instance-class>F4</instance-class>
     <automatic-scaling>
-        <min-instances>5</min-instances>
+        <min-instances>1</min-instances>
     </automatic-scaling>
 </appengine-web-app>

@@ -18,11 +18,21 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-web")
+	providedCompile("javax.servlet:javax.servlet-api:3.1.0")
+	providedCompile("com.google.appengine:appengine:+")
+
+	implementation("com.github.spotbugs:spotbugs-annotations:4.5.0")
+	implementation("org.springframework.boot:spring-boot-starter-web") {
+		exclude(group = "org.springframework.boot", module = "spring-boot-starter-tomcat")
+	}
+	implementation("org.projectlombok:lombok:1.18.2") {
+		exclude(group = "org.slf4j", module = "jul-to-slf4j")
+	}
+
+	implementation("com.github.spotbugs:spotbugs-annotations:4.5.0")
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
-	providedRuntime("org.springframework.boot:spring-boot-starter-tomcat")
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 }
 
@@ -45,6 +55,6 @@ appengine {  // App Engine tasks configuration
 		promote = true
 	}
 	run {
-		jvmFlags = listOf("-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005")
+//		jvmFlags = listOf("-Xdebug", "-Xrunjdwp:transport=dt_socket,server=y,suspend=y,address=5005")
 	}
 }
